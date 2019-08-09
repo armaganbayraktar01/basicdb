@@ -18,4 +18,18 @@ if ( $query ){
   }
 }
 
+
+// select where ve or_where kullanımı (SELECT * FROM user WHERE user_id = $id || user_name = $name  )
+$query = $db->from('user')
+            ->where('user_id', $id)
+            ->or_where('user_name', $name)
+            ->first();
+   
+if ( $query ){
+  foreach ( $query as $row ){
+    print_r($row);
+  }
+}
+
+
 ?>
